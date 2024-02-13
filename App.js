@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
 // Create nested React Elements
 const heading = React.createElement(
   'h1',
