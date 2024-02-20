@@ -1,7 +1,18 @@
+/* Header CSS */
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 3px;
+  width: 100%;
   align-items: center;
+}
+
+.logo {
+  width: 30px;
+}
+
+.nav-items {
+  width: 100%;
 }
 
 .nav-items > ul {
@@ -10,11 +21,7 @@
 }
 
 .nav-items > ul > li {
-  padding: 10%;
-}
-
-.logo {
-  width: 30px;
+  padding: 0 4%;
 }
 
 a {
@@ -24,21 +31,45 @@ a {
 a:hover {
   color: #f58455;
 }
+/* Body CSS */
+
+.restaurant-list {
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
 
 .card {
   width: 200px;
-  padding: 10px;
-  margin: 10px;
+  border-radius: 5px;
+  margin: 22px;
+  cursor: pointer;
 }
-.card > img {
-  width: 180px;
-  height: 180px;
 
+.card > img {
+  width: 100%;
   border-radius: 5px;
 }
-.restaurant-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+
+.search-container {
+  text-align: center;
+}
+.search-input {
+  width: 89%;
+  border-radius: 5px;
+  height: 25px;
+}
+.search-btn {
+  margin-left: 10px;
+  color: #f58455;
+  background-color: white;
+  border-radius: 5px;
+  height: 31px;
+  cursor: pointer;
+}
+.search-btn:hover {
+  background-color: #f58455;
+  color: white;
 }
