@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 // JSX => React.createElement => object => HTML(DOM)
 //it is a JSX expression
 //It is a react element
@@ -18,6 +20,8 @@ export const Title = () => {
 
 // React component
 const Header = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <div className="header">
       <Title />
@@ -29,6 +33,23 @@ const Header = () => {
           <li>Cart</li>
         </ul>
       </div>
+      {isLoggedIn ? (
+        <button
+          onClick={() => {
+            setIsLoggedIn(false);
+          }}
+        >
+          Logout
+        </button>
+      ) : (
+        <button
+          onClick={() => {
+            setIsLoggedIn(true);
+          }}
+        >
+          Login
+        </button>
+      )}
     </div>
   );
 };
