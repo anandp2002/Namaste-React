@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { restaurantList } from '../config';
 import { RestaurantCard } from './RestaurantCard';
 import { SWIGGY_API } from '../config';
 import Shimmer from './Shimmer';
+import { Link } from 'react-router-dom';
 
 function filterData(searchText, restaurants) {
   const filteredData = restaurants.filter((restaurant) => {
@@ -14,15 +14,12 @@ function filterData(searchText, restaurants) {
   return filteredData;
 }
 
-// initialize checkJsonData() function to check Swiggy Restaurant data
-async function checkJsonData(jsonData) {
-  for (let i = 0; i < jsonData?.data?.cards.length; i++) {
-    // initialize checkData for Swiggy Restaurant data
+function checkJsonData(jsonData) {
+  for (let i = 0; i < jsonData?.data?.cards?.length; i++) {
     let checkData =
       jsonData?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
 
-    // if checkData is not undefined then return it
     if (checkData !== undefined) {
       return checkData;
     }
@@ -33,7 +30,6 @@ const Body = () => {
   const [searchText, setSearchText] = useState('');
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-  const [noResults, setNoResults] = useState(false);
 
   useEffect(() => {
     getRestaurants();
@@ -43,12 +39,10 @@ const Body = () => {
     const response = await fetch(SWIGGY_API);
     const json = await response.json();
 
-    // call the checkJsonData() function which return Swiggy Restaurant data
-    const resData = await checkJsonData(json);
+    const resData = checkJsonData(json);
 
     setAllRestaurants(resData);
     setFilteredRestaurants(resData);
-    setNoResults(false);
   }
 
   return (
@@ -74,19 +68,21 @@ const Body = () => {
         </button>
       </div>
 
-      {allRestaurants.length === 0 ? (
+      {allRestaurants?.length === 0 ? (
         <Shimmer />
       ) : (
         <div className="restaurant-list">
-          {filteredRestaurants.length === 0 ? (
+          {filteredRestaurants?.length === 0 ? (
             <h1>Sorry , No Restaurants Found !</h1>
           ) : (
             filteredRestaurants?.map((restaurant) => {
               return (
-                <RestaurantCard
+                <Link
+                  to={'restaurant/' + restaurant?.info?.id}
                   key={restaurant?.info?.id}
-                  {...restaurant?.info}
-                />
+                >
+                  <RestaurantCard {...restaurant?.info} />
+                </Link>
               );
             })
           )}

@@ -2,7 +2,6 @@
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "",
-
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
@@ -20,7 +19,8 @@
   "homepage": "https://github.com/anandp2002/Namaste-React#readme",
   "devDependencies": {
     "@babel/core": "^7.23.9",
-    "@types/react": "^18.2.57",
+    "@types/react": "^18.2.58",
+    "@types/react-dom": "^18.2.19",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "parcel": "^2.11.0",
     "process": "^0.11.10"
@@ -28,7 +28,8 @@
   "dependencies": {
     "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.1"
   },
   "browserslidt": [
     "last 20 Chrome versions"

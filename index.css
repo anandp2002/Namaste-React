@@ -125,3 +125,10 @@ a:hover {
     background-position: 1000px 0;
   }
 }
+
+.restaurant-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
