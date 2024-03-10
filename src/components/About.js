@@ -28,7 +28,7 @@ class About extends Component {
       <div>
         <h1>About us page</h1>
         <p>This is the about page of foodie</p>
-        <ProfileFunctional />
+        <ProfileFunctional name="Anand function" />
       </div>
     );
   }

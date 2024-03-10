@@ -1,48 +1,11 @@
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { IMG_CDN_URL, RES_DETAILS } from '../config';
+import { IMG_CDN_URL } from '../config';
 import Shimmer from './Shimmer';
-
-function checkJsonData(jsonData) {
-  for (let i = 0; i < jsonData?.data?.cards.length; i++) {
-    let checkData = jsonData?.data?.cards[i]?.card?.card?.info;
-
-    if (checkData !== undefined) {
-      return checkData;
-    }
-  }
-}
-
-function checkRecommended(jsonData) {
-  for (let i = 0; i < jsonData?.data?.cards.length; i++) {
-    let RecommendedList =
-      jsonData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[i]
-        ?.card?.card?.itemCards;
-
-    if (RecommendedList !== undefined) {
-      return RecommendedList;
-    }
-  }
-}
+import useRestaurant from '../utils/useRestaurant';
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-  const [restaurant, setRestaurant] = useState(null);
-  const [recommended, setRecommended] = useState([]);
-
-  useEffect(() => {
-    getRestaurantInfo();
-  }, []);
-
-  async function getRestaurantInfo() {
-    const data = await fetch(RES_DETAILS + resId);
-    const json = await data.json();
-    let result = checkJsonData(json);
-    setRestaurant(result);
-
-    let recommendedItems = checkRecommended(json);
-    setRecommended(recommendedItems);
-  }
+  const [restaurant, recommended] = useRestaurant(resId);
 
   return !restaurant ? (
     <Shimmer />

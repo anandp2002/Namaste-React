@@ -3,28 +3,7 @@ import { RestaurantCard } from './RestaurantCard';
 import { SWIGGY_API } from '../config';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
-
-function filterData(searchText, restaurants) {
-  const filteredData = restaurants.filter((restaurant) => {
-    return restaurant?.info?.name
-      .toLowerCase()
-      .includes(searchText.toLowerCase());
-  });
-
-  return filteredData;
-}
-
-function checkJsonData(jsonData) {
-  for (let i = 0; i < jsonData?.data?.cards?.length; i++) {
-    let checkData =
-      jsonData?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-
-    if (checkData !== undefined) {
-      return checkData;
-    }
-  }
-}
+import { filterData, checkJsonData } from '../utils/helper';
 
 const Body = () => {
   const [searchText, setSearchText] = useState('');
@@ -38,7 +17,6 @@ const Body = () => {
   async function getRestaurants() {
     const response = await fetch(SWIGGY_API);
     const json = await response.json();
-
     const resData = checkJsonData(json);
 
     setAllRestaurants(resData);
