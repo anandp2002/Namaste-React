@@ -40,6 +40,9 @@ const Header = () => {
           <Link to="/cart">
             <li>Cart</li>
           </Link>
+          <Link to="/instamart">
+            <li>Instamart</li>
+          </Link>
         </ul>
       </div>
       {isOnline ? '🟢' : '🔴'}
