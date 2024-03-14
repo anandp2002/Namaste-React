@@ -4,16 +4,13 @@ import useOnline from '../utils/useOnline';
 
 export const Title = () => {
   return (
-    <a href="/">
-      <div className="header">
-        <img
-          className="logo"
-          alt="logo-image"
-          src="https://companieslogo.com/img/orig/swiggy-893aaf3b.png?t=1699336580"
-        />
-        <h1 style={{ paddingLeft: '20px' }}>Foodie</h1>
-      </div>
-    </a>
+    <Link to="/">
+      <img
+        className="h-10 mt-3"
+        alt="logo-image"
+        src="https://companieslogo.com/img/orig/swiggy-893aaf3b.png?t=1699336580"
+      />
+    </Link>
   );
 };
 
@@ -24,28 +21,29 @@ const Header = () => {
   const isOnline = useOnline();
 
   return (
-    <div className="header">
+    <div className="flex justify-between bg-stone-50 px-5">
       <Title />
       <div className="nav-items">
-        <ul>
+        <ul className="flex py-5">
           <Link to="/">
-            <li>Home</li>
+            <li className="px-3">Home</li>
           </Link>
           <Link to="/about">
-            <li>About</li>
+            <li className="px-3">About</li>
           </Link>
           <Link to="/contact">
-            <li>Contact</li>
+            <li className="px-3">Contact</li>
           </Link>
           <Link to="/cart">
-            <li>Cart</li>
+            <li className="px-3">Cart</li>
           </Link>
           <Link to="/instamart">
-            <li>Instamart</li>
+            <li className="px-3">Instamart</li>
           </Link>
+          <li>{isOnline ? '🟢' : '🔴'}</li>
         </ul>
       </div>
-      {isOnline ? '🟢' : '🔴'}
+
       {isLoggedIn ? (
         <button
           onClick={() => {

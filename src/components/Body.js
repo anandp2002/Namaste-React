@@ -31,10 +31,10 @@ const Body = () => {
 
   return (
     <>
-      <div className="search-container">
+      <div className="w-full flex justify-center pb-8 bg-stone-50 shadow-md ">
         <input
           type="text"
-          className="search-input"
+          className="border border-swiggy-orange p-1 rounded focus:bg-slate-100"
           placeholder="search"
           value={searchText}
           onChange={(e) => {
@@ -42,7 +42,7 @@ const Body = () => {
           }}
         ></input>
         <button
-          className="search-btn"
+          className="ml-6 bg-swiggy-orange text-white p-1 rounded-md hover:bg-orange-500"
           onClick={() => {
             const data = filterData(searchText, allRestaurants);
             setFilteredRestaurants(data);
@@ -55,7 +55,7 @@ const Body = () => {
       {allRestaurants?.length === 0 ? (
         <Shimmer />
       ) : (
-        <div className="restaurant-list">
+        <div className="flex flex-wrap items-center justify-center ">
           {filteredRestaurants?.length === 0 ? (
             <h1>Sorry , No Restaurants Found !</h1>
           ) : (

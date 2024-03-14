@@ -1,77 +1,6 @@
-/* Header CSS */
-.header {
-  display: flex;
-  justify-content: space-between;
-  margin: 3px;
-  width: 100%;
-  align-items: center;
-}
-
-.logo {
-  width: 30px;
-}
-
-.nav-items {
-  width: 100%;
-}
-
-.nav-items > ul {
-  list-style-type: none;
-  display: flex;
-}
-
-.nav-items > ul > li {
-  padding: 0 4%;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-a:hover {
-  color: #f58455;
-}
-
-/* Body CSS */
-.restaurant-list {
-  width: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.card {
-  width: 350px;
-  border-radius: 5px;
-  margin: 22px;
-  cursor: pointer;
-}
-
-.card > img {
-  width: 80%;
-  border-radius: 2px;
-}
-
-.search-container {
-  text-align: center;
-}
-.search-input {
-  width: 89%;
-  border-radius: 5px;
-  height: 25px;
-}
-.search-btn {
-  margin-left: 10px;
-  color: #f58455;
-  background-color: white;
-  border-radius: 5px;
-  height: 31px;
-  cursor: pointer;
-}
-.search-btn:hover {
-  background-color: #f58455;
-  color: white;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /*Shimmer CSS */
 .shimmer-container {
@@ -124,11 +53,4 @@ a:hover {
   to {
     background-position: 1000px 0;
   }
-}
-
-.restaurant-item {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
 }

@@ -10,9 +10,9 @@ const RestaurantMenu = () => {
   return !restaurant ? (
     <Shimmer />
   ) : (
-    <div className="restaurant-item">
+    <div className="flex flex-wrap justify-center p-10">
       <div>
-        <h1>{restaurant.name}</h1>
+        <h1 className="font-bold text-2xl mb-5">{restaurant.name}</h1>
         <img src={IMG_CDN_URL + restaurant.cloudinaryImageId}></img>
         <p>{restaurant.areaName}</p>
         <h3>{restaurant.city}</h3>
@@ -20,10 +20,12 @@ const RestaurantMenu = () => {
         <h5>{restaurant.costForTwoMessage}</h5>
       </div>
       <div>
-        <h1>Recommended items({recommended?.length})</h1>
-        <ul>
+        <h1 className="ml-14 font-bold">
+          Recommended items({recommended?.length})
+        </h1>
+        <ul className="ml-14">
           {recommended.map((item) => (
-            <li key={item.card.info.id}>{item.card.info.name}</li>
+            <li key={item.card.info.id}>→ {item.card.info.name}</li>
           ))}
         </ul>
       </div>
