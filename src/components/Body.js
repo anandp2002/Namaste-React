@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { RestaurantCard } from './RestaurantCard';
 import { SWIGGY_API } from '../config';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
 import { filterData, checkJsonData } from '../utils/helper';
 import useOnline from '../utils/useOnline';
+import UserContext from '../utils/UserContext';
 
 const Body = () => {
   const [searchText, setSearchText] = useState('');
@@ -24,10 +25,7 @@ const Body = () => {
     setFilteredRestaurants(resData);
   }
 
-  // const isOnline = useOnline();
-  // if (!isOnline) {
-  //   return <h1>Please check your internet connection ⚠️</h1>;
-  // }
+  const { user, setUser } = useContext(UserContext);
 
   return (
     <>
@@ -50,6 +48,14 @@ const Body = () => {
         >
           Search
         </button>
+
+        <input
+          value={user.name}
+          onChange={(e) => {
+            setUser({ ...user, name: e.target.value });
+          }}
+          className="text-green-800 ml-8"
+        ></input>
       </div>
 
       {allRestaurants?.length === 0 ? (
