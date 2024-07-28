@@ -8,6 +8,7 @@ export const Title = () => {
   return (
     <Link to="/">
       <img
+        data-testid="logo"
         className="h-10 mt-3"
         alt="logo-image"
         src="https://companieslogo.com/img/orig/swiggy-893aaf3b.png?t=1699336580"
@@ -45,9 +46,11 @@ const Header = () => {
           <Link to="/instamart">
             <li className="px-3">Instamart</li>
           </Link>
-          <li>{isOnline ? '🟢' : '🔴'}</li>
+          <li data-testid="online-status">{isOnline ? '🟢' : '🔴'}</li>
           <Link to="/cart">
-            <li className="px-3">Cart({cartItems.length})</li>
+            <li data-testid="cart" className="px-3">
+              Cart({cartItems.length})
+            </li>
           </Link>
         </ul>
       </div>
