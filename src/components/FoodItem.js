@@ -11,6 +11,7 @@ export const FoodItem = ({ imageId, name, description, price }) => {
       <img
         className="mb-2 shadow-md rounded-lg w-72 h-48 object-cover"
         src={IMG_CDN_URL + imageId}
+        alt=" Item image"
       />
       <h2 className="font-bold text-2md pb-1">{name}</h2>
 
