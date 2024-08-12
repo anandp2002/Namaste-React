@@ -18,7 +18,9 @@ const Body = () => {
 
   async function getRestaurants() {
     const response = await fetch(SWIGGY_API);
+
     const json = await response.json();
+
     const resData = checkJsonData(json);
 
     setAllRestaurants(resData);
