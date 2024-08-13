@@ -37,7 +37,7 @@ const Body = () => {
 
   return (
     <>
-      <div className="w-full flex justify-center pb-8 bg-stone-50 shadow-md ">
+      <div className="w-full flex justify-center pb-8 pt-32 bg-stone-50 shadow-md ">
         <input
           type="text"
           className="border border-swiggy-orange p-1 rounded focus:bg-slate-100"
