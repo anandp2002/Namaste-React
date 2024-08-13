@@ -22,39 +22,46 @@ const Cart = () => {
 
   if (cartItems.length === 0) {
     return (
-      <h2 className="font-bold mt-32 text-center">Your cart is empty !</h2>
+      <h2 className="font-bold text-2xl text-center mt-32 text-gray-600">
+        Your cart is empty!
+      </h2>
     );
   }
 
   return (
-    <div className="mt-32">
-      <div className="flex flex-wrap justify-around">
-        <h1 className="font-bold">Total quantity ({totalQuantity})</h1>
-        <h1 className="font-bold">
+    <div className="mt-32 p-6 bg-gray-50 min-h-screen">
+      <div className="flex flex-col sm:flex-row justify-around items-center mb-8">
+        <h1 className="text-2xl font-bold text-gray-800 mb-4 sm:mb-0">
+          Total Quantity: {totalQuantity}
+        </h1>
+        <h1 className="text-2xl font-bold text-gray-800 mb-4 sm:mb-0">
           Total Amount: ₹ {totalAmount.toFixed(2) / 100}
         </h1>
         <button
-          className="btn bg-red-200 rounded-md p-2 m-5"
-          onClick={() => handleClearCart()}
+          className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
+          onClick={handleClearCart}
         >
-          Clear cart
+          Clear Cart
         </button>
       </div>
 
       <div className="flex flex-wrap justify-center">
         {cartItems.map((item) => (
-          <div key={item.id} className="m-2 p-2 border rounded-md">
+          <div
+            key={item.id}
+            className="w-full sm:w-80 p-4 m-2 bg-white shadow-md rounded-lg flex flex-col items-center"
+          >
             <FoodItem {...item} />
-            <div className="flex justify-around items-center mt-2">
+            <div className="flex justify-between items-center w-full mt-4">
               <button
-                className="btn bg-red-300 rounded-md px-3"
+                className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md transition"
                 onClick={() => handleRemoveItem(item.id)}
               >
                 -
               </button>
-              <span>{item.quantity}</span>
+              <span className="text-lg font-semibold">{item.quantity}</span>
               <button
-                className="btn bg-green-300 rounded-md px-3"
+                className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-md transition"
                 onClick={() => handleAddItem(item)}
               >
                 +
