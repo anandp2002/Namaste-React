@@ -104,7 +104,7 @@ const Header = () => {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth="2"
+                  strokeWidth="2.5"
                   d={
                     isMenuOpen
                       ? 'M6 18L18 6M6 6l12 12'
