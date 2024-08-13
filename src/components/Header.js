@@ -29,6 +29,10 @@ const Header = () => {
 
   const cartItems = useSelector((store) => store.cart.items);
 
+  const handleMenuClick = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="bg-stone-50 fixed top-0 left-0 w-full z-50 pt-1">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -122,24 +126,28 @@ const Header = () => {
             <Link
               to="/"
               className="text-gray-700 hover:text-black block px-3 py-2 rounded-md text-base font-medium"
+              onClick={handleMenuClick}
             >
               Home
             </Link>
             <Link
               to="/about"
               className="text-gray-700 hover:text-black block px-3 py-2 rounded-md text-base font-medium"
+              onClick={handleMenuClick}
             >
               About
             </Link>
             <Link
               to="/contact"
               className="text-gray-700 hover:text-black block px-3 py-2 rounded-md text-base font-medium"
+              onClick={handleMenuClick}
             >
               Contact
             </Link>
             <Link
               to="/instamart"
               className="text-gray-700 hover:text-black block px-3 py-2 rounded-md text-base font-medium"
+              onClick={handleMenuClick}
             >
               Instamart
             </Link>
@@ -152,6 +160,7 @@ const Header = () => {
             <Link
               to="/cart"
               className="text-gray-700 hover:text-black block px-3 py-2 rounded-md text-base font-medium"
+              onClick={handleMenuClick}
             >
               Cart ({cartItems.length})
             </Link>
