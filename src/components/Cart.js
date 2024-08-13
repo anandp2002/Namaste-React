@@ -21,11 +21,13 @@ const Cart = () => {
   };
 
   if (cartItems.length === 0) {
-    return <h2 className="font-bold">Your cart is empty.</h2>;
+    return (
+      <h2 className="font-bold mt-32 text-center">Your cart is empty !</h2>
+    );
   }
 
   return (
-    <div>
+    <div className="mt-32">
       <div className="flex flex-wrap justify-around">
         <h1 className="font-bold">Total quantity ({totalQuantity})</h1>
         <h1 className="font-bold">

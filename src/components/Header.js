@@ -25,12 +25,12 @@ const Header = () => {
 
   const isOnline = useOnline();
 
-  const { user } = useContext(UserContext);
+  // const { user } = useContext(UserContext);
 
   const cartItems = useSelector((store) => store.cart.items);
 
   return (
-    <header className="bg-stone-50 fixed top-0 left-0 w-full shadow-lg z-50">
+    <header className="bg-stone-50 fixed top-0 left-0 w-full z-50 pt-1">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Title />
@@ -38,52 +38,52 @@ const Header = () => {
             <div className="ml-10 flex items-baseline space-x-4">
               <Link
                 to="/"
-                className="text-gray-700 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
+                className="text-gray-700 hover:text-black px-3 py-2 rounded-md text-m font-bold"
               >
                 Home
               </Link>
               <Link
                 to="/about"
-                className="text-gray-700 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
+                className="text-gray-700 hover:text-black px-3 py-2 rounded-md text-m font-bold"
               >
                 About
               </Link>
               <Link
                 to="/contact"
-                className="text-gray-700 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
+                className="text-gray-700 hover:text-black px-3 py-2 rounded-md text-m font-bold"
               >
                 Contact
               </Link>
               <Link
                 to="/instamart"
-                className="text-gray-700 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
+                className="text-gray-700 hover:text-black px-3 py-2 rounded-md text-m font-bold"
               >
                 Instamart
               </Link>
-              <span data-testid="online-status" className="px-3 py-2 text-sm">
+              <span data-testid="online-status" className="px-3 py-2 text-m">
                 {isOnline ? '🟢' : '🔴'}
               </span>
               <Link
                 to="/cart"
-                className="text-gray-700 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
+                className="text-gray-700 hover:text-black px-3 py-2 rounded-md text-m font-bold"
               >
                 Cart ({cartItems.length})
               </Link>
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-4">
-            <h1 className="text-orange-400 font-bold">{user.name}</h1>
+            {/* <h1 className="text-orange-400 font-bold">{user.name}</h1> */}
             {isLoggedIn ? (
               <button
                 onClick={() => setIsLoggedIn(false)}
-                className="px-4 py-2 bg-orange-400 text-white rounded-md hover:bg-orange-500 transition"
+                className="px-4 py-2 bg-swiggy-orange text-white rounded-md hover:bg-orange-500 transition"
               >
                 Logout
               </button>
             ) : (
               <button
                 onClick={() => setIsLoggedIn(true)}
-                className="px-4 py-2 bg-orange-400 text-white rounded-md hover:bg-orange-500 transition"
+                className="px-4 py-2 bg-swiggy-orange text-white rounded-md hover:bg-orange-500 transition"
               >
                 Login
               </button>
@@ -157,7 +157,7 @@ const Header = () => {
             </Link>
           </div>
           <div className="px-5 py-3 border-t border-gray-200 flex justify-between">
-            <h1 className="text-orange-400 font-bold">{user.name}</h1>
+            {/* <h1 className="text-orange-400 font-bold">{user.name}</h1> */}
             {isLoggedIn ? (
               <button
                 onClick={() => setIsLoggedIn(false)}

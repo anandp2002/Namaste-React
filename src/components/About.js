@@ -26,7 +26,7 @@ class About extends Component {
   render() {
     console.log('parent-render');
     return (
-      <div>
+      <div className="mt-32 text-center">
         <h1>About us page</h1>
         <UserContext.Consumer>
           {({ user }) => <h3 className="font-bold">{user.name}</h3>}

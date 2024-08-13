@@ -4,8 +4,7 @@ import { SWIGGY_API } from '../config';
 import Shimmer from './Shimmer';
 import { Link } from 'react-router-dom';
 import { filterData, checkJsonData } from '../utils/helper';
-import useOnline from '../utils/useOnline';
-import UserContext from '../utils/UserContext';
+// import UserContext from '../utils/UserContext';
 
 const Body = () => {
   const [searchText, setSearchText] = useState('');
@@ -22,6 +21,8 @@ const Body = () => {
         Origin: 'https://cors-anywhere-tqd5.onrender.com',
         'X-Requested-With': 'XMLHttpRequest',
       },
+    }).catch((err) => {
+      alert('Check your internet connection');
     });
 
     const json = await response.json();
@@ -33,22 +34,23 @@ const Body = () => {
     setFilteredRestaurants(resData);
   }
 
-  const { user, setUser } = useContext(UserContext);
+  // const { user, setUser } = useContext(UserContext);
 
   return (
     <>
-      <div className="w-full flex justify-center pb-8 pt-32 bg-stone-50 shadow-md ">
+      {/* Fixed Container for Search */}
+      <div className="fixed top-0 left-0 w-full flex justify-center bg-stone-50 shadow-md z-10 py-4 mt-14">
         <input
           type="text"
-          className="border border-swiggy-orange p-1 rounded focus:bg-slate-100"
+          className="border border-swiggy-orange p-1 rounded focus:bg-slate-50 focus:border-swiggy-orange focus:outline-none"
           placeholder="search"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
-        ></input>
+        />
         <button
-          className="ml-6 bg-swiggy-orange text-white p-1 rounded-md hover:bg-orange-500"
+          className="ml-6 bg-swiggy-orange text-white px-2 rounded-md hover:bg-orange-500"
           onClick={() => {
             const data = filterData(searchText, allRestaurants);
             setFilteredRestaurants(data);
@@ -56,36 +58,31 @@ const Body = () => {
         >
           Search
         </button>
-
-        <input
-          value={user.name}
-          onChange={(e) => {
-            setUser({ ...user, name: e.target.value });
-          }}
-          className="text-green-800 ml-8"
-        ></input>
       </div>
 
-      {allRestaurants?.length === 0 ? (
-        <Shimmer />
-      ) : (
-        <div className="flex flex-wrap items-center justify-center ">
-          {filteredRestaurants?.length === 0 ? (
-            <h1>Sorry , No Restaurants Found !</h1>
-          ) : (
-            filteredRestaurants?.map((restaurant) => {
-              return (
-                <Link
-                  to={'restaurant/' + restaurant?.info?.id}
-                  key={restaurant?.info?.id}
-                >
-                  <RestaurantCard {...restaurant?.info} />
-                </Link>
-              );
-            })
-          )}
-        </div>
-      )}
+      {/* Padding to ensure content is visible below fixed container */}
+      <div className="pt-20 mt-20">
+        {allRestaurants?.length === 0 ? (
+          <Shimmer />
+        ) : (
+          <div className="flex flex-wrap items-center justify-center ">
+            {filteredRestaurants?.length === 0 ? (
+              <h1>Sorry, No Restaurants Found!</h1>
+            ) : (
+              filteredRestaurants?.map((restaurant) => {
+                return (
+                  <Link
+                    to={'restaurant/' + restaurant?.info?.id}
+                    key={restaurant?.info?.id}
+                  >
+                    <RestaurantCard {...restaurant?.info} />
+                  </Link>
+                );
+              })
+            )}
+          </div>
+        )}
+      </div>
     </>
   );
 };
