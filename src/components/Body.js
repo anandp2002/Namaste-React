@@ -17,9 +17,15 @@ const Body = () => {
   }, []);
 
   async function getRestaurants() {
-    const response = await fetch(SWIGGY_API);
+    const response = await fetch(SWIGGY_API, {
+      headers: {
+        Origin: 'https://cors-anywhere-tqd5.onrender.com',
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+    });
 
     const json = await response.json();
+    console.log(json.data.cards);
 
     const resData = checkJsonData(json);
 

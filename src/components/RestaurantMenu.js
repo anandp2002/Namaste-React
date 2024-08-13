@@ -28,7 +28,6 @@ const RestaurantMenu = () => {
         <p>{restaurant.areaName}</p>
         <h3>{restaurant.city}</h3>
         <h4>{restaurant.avgRating} stars</h4>
-        <h5>{restaurant.costForTwoMessage}</h5>
       </div>
       <div></div>
       <div>
