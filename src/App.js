@@ -11,7 +11,6 @@ import RestaurantMenu from './components/RestaurantMenu';
 import ProfileClass from './components/ProfileClass';
 import Shimmer from './components/Shimmer';
 import UserContext from './utils/UserContext';
-// import Instamart from './components/Instamart';
 import { Provider } from 'react-redux';
 import store from './utils/store';
 import Cart from './components/Cart';
@@ -20,12 +19,19 @@ const Instamart = lazy(() => import('./components/Instamart'));
 
 const AppLayout = () => {
   const [user, setUser] = useState({ name: 'Anand', email: 'anand@gmail.com' });
+
   return (
     <Provider store={store}>
       <UserContext.Provider value={{ user: user, setUser: setUser }}>
-        <Header />
-        <Outlet />
-        <Footer />
+        {/* Wrapper with flex, min-h-screen to push footer down */}
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          {/* flex-grow will push the footer to the bottom */}
+          <div className="flex-grow">
+            <Outlet />
+          </div>
+          <Footer />
+        </div>
       </UserContext.Provider>
     </Provider>
   );
