@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-zinc-50 text-center text-surface/75 dark:bg-gray-100 dark:text-black/75 lg:text-left">
       <div className="flex items-center justify-center border-b-2 border-neutral-200 p-6 dark:border-white/10 lg:justify-between">
-        <div className="me-12 hidden lg:block">
+        <div className="me-12 hidden lg:block px-10">
           <span>Get connected with us on social networks </span>
         </div>
         <div className="flex justify-center">
@@ -61,7 +61,7 @@ const Footer = () => {
       </div>
       <div className="mx-6 py-10 text-center md:text-left">
         <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <div>
+          <div className="px-10">
             <h6 className="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start">
               Swiggy
             </h6>

@@ -16,12 +16,7 @@ const Body = () => {
   }, []);
 
   async function getRestaurants() {
-    const response = await fetch(SWIGGY_API, {
-      headers: {
-        Origin: 'https://cors-anywhere-tqd5.onrender.com',
-        'X-Requested-With': 'XMLHttpRequest',
-      },
-    }).catch((err) => {
+    const response = await fetch(SWIGGY_API).catch((err) => {
       alert('Check your internet connection');
     });
 
