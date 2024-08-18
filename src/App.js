@@ -14,6 +14,7 @@ import UserContext from './utils/UserContext';
 import { Provider } from 'react-redux';
 import store from './utils/store';
 import Cart from './components/Cart';
+import ScrollToTop from './components/ScrollToTop';
 
 const Instamart = lazy(() => import('./components/Instamart'));
 
@@ -25,6 +26,7 @@ const AppLayout = () => {
       <UserContext.Provider value={{ user: user, setUser: setUser }}>
         {/* Wrapper with flex, min-h-screen to push footer down */}
         <div className="flex flex-col min-h-screen">
+          <ScrollToTop />
           <Header />
           {/* flex-grow will push the footer to the bottom */}
           <div className="flex-grow">
