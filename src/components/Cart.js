@@ -22,7 +22,7 @@ const Cart = () => {
 
   if (cartItems.length === 0) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex items-center justify-center min-h-screen mr-12">
         <img
           className="w-80 h-80"
           src="https://truewholesale.in/website-frontend/tws/assets/img/chat.gif"
