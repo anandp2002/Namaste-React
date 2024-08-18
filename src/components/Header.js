@@ -139,19 +139,7 @@ const Header = () => {
             >
               Contact
             </Link>
-            <Link
-              to="/instamart"
-              className="text-gray-700 hover:text-black block px-3 py-2 rounded-md text-base font-medium"
-              onClick={handleMenuClick}
-            >
-              Instamart
-            </Link>
-            <span
-              data-testid="online-status"
-              className="block px-3 py-2 text-base font-medium"
-            >
-              {isOnline ? '🟢' : '🔴'}
-            </span>
+
             <Link
               to="/cart"
               className="text-gray-700 hover:text-black block px-3 py-2 rounded-md text-base font-medium"
