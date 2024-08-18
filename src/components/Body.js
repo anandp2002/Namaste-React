@@ -21,7 +21,6 @@ const Body = () => {
     });
 
     const json = await response.json();
-    console.log(json.data.cards);
 
     const resData = checkJsonData(json);
 
@@ -62,7 +61,15 @@ const Body = () => {
         ) : (
           <div className="flex flex-wrap items-center justify-center ">
             {filteredRestaurants?.length === 0 ? (
-              <h1>Sorry, No Restaurants Found!</h1>
+              <div
+                className="min-h-screen flex items-center justify-center"
+                style={{ marginTop: '-100px' }}
+              >
+                <img
+                  alt="No restaurants found"
+                  src="https://qrmenu.com/images/no_result_found.gif"
+                />
+              </div>
             ) : (
               filteredRestaurants?.map((restaurant) => {
                 return (
