@@ -22,9 +22,15 @@ const Cart = () => {
 
   if (cartItems.length === 0) {
     return (
-      <h2 className="font-bold text-2xl text-center mt-32 text-gray-600">
-        Your cart is empty!
-      </h2>
+      <div className="flex items-center justify-center min-h-screen">
+        <img
+          className="w-80 h-80"
+          src="https://truewholesale.in/website-frontend/tws/assets/img/chat.gif"
+        ></img>
+        <h2 className="font-bold text-2xl text-center text-gray-600">
+          Sorry, Your cart is empty !
+        </h2>
+      </div>
     );
   }
 

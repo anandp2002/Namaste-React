@@ -58,12 +58,7 @@ const Header = () => {
               >
                 Contact
               </Link>
-              <Link
-                to="/instamart"
-                className="text-gray-700 hover:text-black px-3 py-2 rounded-md text-m font-bold"
-              >
-                Instamart
-              </Link>
+
               <span data-testid="online-status" className="px-3 py-2 text-m">
                 {isOnline ? '🟢' : '🔴'}
               </span>
